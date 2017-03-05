@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/page.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -21,8 +23,67 @@
     </script>
 </head>
 <body>
+
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <div class="bodybackground"></div>
+
+
+        @if (Auth::guest())
+            <!-- <li><a href="{{ route('login') }}">Login</a></li>
+            <li><a href="{{ route('register') }}">Register</a></li> -->
+        @else
+            <a class="btn btn-dark btn-lg toggle" href="#" id="menu-toggle"><i class="fa fa-bars"></i></a>
+
+            <nav id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <a class="btn btn-light btn-lg pull-right toggle" href="#" id="menu-close"><i class="fa fa-times"></i></a>
+                    <li class="sidebar-brand">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            {{ config('app.name', 'Office Share') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#profile">Profile</a>
+                    </li>
+                    <li>
+                        <a href="#user">User</a>
+                    </li>
+                    <li>
+                        <a href="#managegroup">Manage Group</a>
+                    </li>
+                    <li>
+                        <a href="#groupchat">Group Chat</a>
+                    </li>
+                    <li>
+                        <a href="#individualchat">Individual Chat</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+
+        @endif
+
+
+        @yield('content')
+
+
+
+    </div>
+
+
+   <?php /* ?>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top borderColor">
             <div class="container">
                 <div class="navbar-header">
 
@@ -39,6 +100,7 @@
                         {{ config('app.name', 'Office Share') }}
                     </a>
                 </div>
+                <div class="borderColor">asdad</div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
@@ -81,16 +143,25 @@
 
         @yield('content')
     </div>
+    <?php */ ?>
 
     <!-- Scripts -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.27/vue.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
 
     
 
     <script>
-        
+        // Closes the sidebar menu
+        $("#menu-close").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        // Opens the sidebar menu
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
     </script>
 
 
