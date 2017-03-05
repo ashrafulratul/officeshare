@@ -28,10 +28,7 @@
         <div class="bodybackground"></div>
 
 
-        @if (Auth::guest())
-            <!-- <li><a href="{{ route('login') }}">Login</a></li>
-            <li><a href="{{ route('register') }}">Register</a></li> -->
-        @else
+        @if (!Auth::guest())
             <a class="btn btn-dark btn-lg toggle" href="#" id="menu-toggle"><i class="fa fa-bars"></i></a>
 
             <nav id="sidebar-wrapper">
