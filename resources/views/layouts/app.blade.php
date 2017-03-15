@@ -21,8 +21,10 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/angular/app_config.js') }}"></script>
 </head>
-<body>
+<body ng-app="app">
 
     <div id="app">
         <div class="bodybackground"></div>

@@ -7,8 +7,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
-                    You are logged in!
+                <div class="panel-body" ng-controller="TestController">
+                    You  @{{ name }} are logged in!
+                    <input type="text" ng-model="my" />
+                    <p>@{{ my }}</p>
+
                 </div>
 
             </div>
