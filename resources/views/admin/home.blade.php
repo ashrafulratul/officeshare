@@ -25,12 +25,14 @@
 <div class="row">
         <div class="panel-heading">Dashboard</div>
 
-        <div class="panel-body" ng-controller="TestController">
+       <!--  <div class="panel-body" ng-controller="TestController">
             You  @{{ name }} are logged in!
             <input type="text" ng-model="my" />
             <p>@{{ my }}</p>
 
-        </div>
+        </div> -->
+
+         <div ng-view></div>
 
 </div>
 </div>

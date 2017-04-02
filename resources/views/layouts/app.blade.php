@@ -22,6 +22,7 @@
         ]) !!};
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <script type="text/javascript" src="{{ asset('js/angular/app_config.js') }}"></script>
 </head>
 <body ng-app="app">
